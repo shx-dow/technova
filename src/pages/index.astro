@@ -1,18 +1,17 @@
 ---
 import BaseLayout from "../layouts/baseLayout.astro";
 
-// Placeholder for Google Form registration URL
+// Google Form registration URL
 const REGISTER_URL = "#";
 ---
 
 <BaseLayout>
   <section class="hero-frame">
     <div class="hero-content">
-      <!-- Top: Date & Location -->
       <div class="hero-meta">
-        <span>27 - 28 February 2026</span>
+        <span>27 February 2026</span>
         <span class="meta-divider"></span>
-        <span>ICFAI University</span>
+        <span>The ICFAI University</span>
       </div>
 
       <div class="hero-title-block">
@@ -48,7 +47,6 @@ const REGISTER_URL = "#";
 </BaseLayout>
 
 <style>
-  /* Hero Frame - Full Viewport, Single Screen */
   .hero-frame {
     min-height: 100vh;
     min-height: 100dvh;
@@ -71,7 +69,6 @@ const REGISTER_URL = "#";
     flex: 1;
   }
 
-  /* Meta Info */
   .hero-meta {
     display: flex;
     align-items: center;
@@ -91,7 +88,6 @@ const REGISTER_URL = "#";
     background: var(--color-text-dim);
   }
 
-  /* Title Block */
   .hero-title-block {
     opacity: 0;
     animation: fadeIn 0.8s ease forwards;
@@ -122,7 +118,6 @@ const REGISTER_URL = "#";
     letter-spacing: 0.02em;
   }
 
-  /* CTAs */
   .hero-ctas {
     display: flex;
     gap: 1rem;
@@ -166,7 +161,6 @@ const REGISTER_URL = "#";
     border-color: var(--color-text-muted);
   }
 
-  /* Stats */
   .hero-stats {
     display: flex;
     gap: 3rem;
@@ -196,32 +190,6 @@ const REGISTER_URL = "#";
     color: var(--color-text-dim);
   }
 
-  /* Navigation Hints at Bottom */
-  .hero-nav-hints {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 2rem;
-    opacity: 0;
-    animation: fadeIn 0.8s ease forwards;
-    animation-delay: 1s;
-  }
-
-  .hero-nav-hints a {
-    font-size: 0.6875rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-text-dim);
-    transition: color 0.2s ease;
-  }
-
-  .hero-nav-hints a:hover {
-    color: var(--color-text-muted);
-  }
-
-  /* Subtle fade-in animation */
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -270,10 +238,6 @@ const REGISTER_URL = "#";
 
     .stat-value {
       font-size: 1.25rem;
-    }
-
-    .hero-nav-hints {
-      display: none;
     }
   }
 </style>

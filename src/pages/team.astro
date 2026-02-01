@@ -3,20 +3,17 @@ import BaseLayout from "../layouts/baseLayout.astro";
 
 // Placeholder team data
 const coreTeam = [
-  { name: "Team Member", role: "Convenor", department: "CSE", initials: "TM" },
-  { name: "Team Member", role: "Co-Convenor", department: "IT", initials: "TM" },
-  { name: "Team Member", role: "Technical Head", department: "CSE", initials: "TM" },
-  { name: "Team Member", role: "Marketing Head", department: "MBA", initials: "TM" },
+  { name: "Team Member 1", role: "Convenor", initials: "TM" },
+  { name: "Team Member 2", role: "Co-Convenor", initials: "TM" },
+  { name: "Team Member 3", role: "Technical Head", initials: "TM" },
+  { name: "Team Member 4", role: "Marketing Head", initials: "TM" },
 ];
 
 const departments = [
   {
     name: "Technical",
     members: [
-      { name: "Member Name", role: "Lead", initials: "MN" },
-      { name: "Member Name", role: "Developer", initials: "MN" },
-      { name: "Member Name", role: "Developer", initials: "MN" },
-      { name: "Member Name", role: "Developer", initials: "MN" },
+      { name: "Member Name", role: "Lead Developer", initials: "MN" },
     ],
   },
   {
@@ -64,8 +61,8 @@ const departments = [
 ];
 
 const facultyAdvisors = [
-  { name: "Faculty Name", designation: "Professor & HOD", department: "Computer Science", initials: "FN" },
-  { name: "Faculty Name", designation: "Associate Professor", department: "Information Technology", initials: "FN" },
+  { name: "Faculty Name", designation: "Professor & HOD", initials: "FN" },
+  { name: "Faculty Name", designation: "Associate Professor", initials: "FN" },
 ];
 ---
 
@@ -93,7 +90,6 @@ const facultyAdvisors = [
             <div class="advisor-info">
               <h3 class="advisor-name">{advisor.name}</h3>
               <p class="advisor-designation">{advisor.designation}</p>
-              <p class="advisor-department">{advisor.department}</p>
             </div>
           </div>
         ))}
@@ -112,7 +108,6 @@ const facultyAdvisors = [
             <div class="core-avatar">{member.initials}</div>
             <h3 class="core-name">{member.name}</h3>
             <p class="core-role">{member.role}</p>
-            <p class="core-department">{member.department}</p>
           </div>
         ))}
       </div>
@@ -145,23 +140,6 @@ const facultyAdvisors = [
             </div>
           </div>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Join CTA -->
-  <section class="section">
-    <div class="container-editorial">
-      <div class="cta-block">
-        <p class="cta-badge">We're hiring volunteers!</p>
-        <h2 class="cta-title">Want to be part of TechNova?</h2>
-        <p class="cta-description">
-          We're looking for passionate individuals to join our team.
-        </p>
-        <div class="cta-actions">
-          <a href="#" class="btn-primary">Apply as Volunteer</a>
-          <a href="mailto:team@technova.edu" class="btn-outline">Contact Team</a>
-        </div>
       </div>
     </div>
   </section>
@@ -251,11 +229,6 @@ const facultyAdvisors = [
     margin-bottom: 0.125rem;
   }
 
-  .advisor-department {
-    font-size: 0.75rem;
-    color: var(--color-text-dim);
-  }
-
   /* Core Team */
   .core-grid {
     display: grid;
@@ -307,13 +280,6 @@ const facultyAdvisors = [
     font-size: 0.8125rem;
     color: var(--color-accent-editorial);
     margin-bottom: 0.25rem;
-  }
-
-  .core-department {
-    font-size: 0.6875rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-text-dim);
   }
 
   /* Department Teams */
@@ -394,43 +360,5 @@ const facultyAdvisors = [
   .member-role {
     font-size: 0.6875rem;
     color: var(--color-text-dim);
-  }
-
-  /* CTA Block */
-  .cta-block {
-    padding: 3rem 2rem;
-    border: 1px solid var(--color-border);
-    text-align: center;
-  }
-
-  .cta-badge {
-    display: inline-block;
-    padding: 0.375rem 0.75rem;
-    margin-bottom: 1rem;
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border: 1px solid var(--color-border);
-    color: var(--color-text-muted);
-  }
-
-  .cta-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .cta-description {
-    font-size: 0.9375rem;
-    color: var(--color-text-muted);
-    margin-bottom: 1.5rem;
-  }
-
-  .cta-actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
   }
 </style>

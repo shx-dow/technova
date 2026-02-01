@@ -50,7 +50,7 @@ const isHomepage = Astro.url.pathname === '/';
       <slot />
     </main>
     
-    {!hideFooter && !isHomepage && <Footer />}
+    <Footer />
   </body>
 </html>
 

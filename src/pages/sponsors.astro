@@ -8,80 +8,28 @@ const sponsorTiers = [
     sponsors: [{ name: "Title Sponsor" }],
   },
   {
-    name: "Platinum",
+    name: "Partner tier 1",
     sponsors: [
-      { name: "Platinum Sponsor 1" },
-      { name: "Platinum Sponsor 2" },
+      { name: "Name 1" },
+      { name: "Name 2" },
     ],
   },
   {
-    name: "Gold",
+    name: "Partner tier 2",
     sponsors: [
-      { name: "Gold Sponsor 1" },
-      { name: "Gold Sponsor 2" },
-      { name: "Gold Sponsor 3" },
+      { name: "Name 1" },
+      { name: "Name 2" },
+      { name: "Name 3" },
     ],
   },
   {
-    name: "Silver",
+    name: "Partner tier 3",
     sponsors: [
-      { name: "Silver Sponsor 1" },
-      { name: "Silver Sponsor 2" },
-      { name: "Silver Sponsor 3" },
-      { name: "Silver Sponsor 4" },
+      { name: "Name 1" },
+      { name: "Name 2" },
+      { name: "Name 3" },
+      { name: "Name 4" },
     ],
-  },
-];
-
-const sponsorshipPackages = [
-  {
-    tier: "Title",
-    price: "₹10,00,000+",
-    features: [
-      "Exclusive title sponsorship",
-      "Main stage naming rights",
-      "Keynote speaker slot",
-      "Premium booth (100 sq ft)",
-      "Logo on all materials",
-      "Dedicated social campaign",
-    ],
-    available: false,
-  },
-  {
-    tier: "Platinum",
-    price: "₹5,00,000",
-    features: [
-      "Premium booth (50 sq ft)",
-      "Workshop hosting opportunity",
-      "Logo on main banners",
-      "Social media features",
-      "Networking dinner access",
-      "Resume database access",
-    ],
-    available: true,
-  },
-  {
-    tier: "Gold",
-    price: "₹2,50,000",
-    features: [
-      "Standard booth (25 sq ft)",
-      "Logo on website & materials",
-      "Social media mentions",
-      "Event participation priority",
-      "Swag bag inclusion",
-    ],
-    available: true,
-  },
-  {
-    tier: "Silver",
-    price: "₹1,00,000",
-    features: [
-      "Logo on website",
-      "Social media mention",
-      "Swag bag inclusion",
-      "Complimentary passes (5)",
-    ],
-    available: true,
   },
 ];
 ---
@@ -117,79 +65,7 @@ const sponsorshipPackages = [
         </div>
       ))}
     </div>
-  </section>
-
-  <!-- Become a Sponsor -->
-  <section class="section">
-    <div class="container-editorial">
-      <div class="section-header">
-        <h2 class="section-title">Become a Sponsor</h2>
-        <p class="section-description">
-          Join the ranks of industry leaders supporting the next generation of tech innovators.
-        </p>
-      </div>
-
-      <div class="packages-grid">
-        {sponsorshipPackages.map((pkg) => (
-          <div class={`package-card ${!pkg.available ? 'sold-out' : ''}`}>
-            <div class="package-header">
-              <h3 class="package-tier">{pkg.tier}</h3>
-              <p class="package-price">{pkg.price}</p>
-            </div>
-            
-            <ul class="package-features">
-              {pkg.features.map(feature => (
-                <li>{feature}</li>
-              ))}
-            </ul>
-            
-            <div class="package-footer">
-              {pkg.available ? (
-                <a href="mailto:sponsors@technova.edu" class="package-cta">Get in Touch</a>
-              ) : (
-                <span class="package-status">Sold Out</span>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Sponsor -->
-  <section class="section">
-    <div class="container-editorial">
-      <h2 class="section-label">Why Sponsor TechNova?</h2>
-      
-      <div class="benefits-grid">
-        <div class="benefit">
-          <h3 class="benefit-title">5000+ Attendees</h3>
-          <p class="benefit-description">Reach thousands of tech enthusiasts, students, and professionals</p>
-        </div>
-        <div class="benefit">
-          <h3 class="benefit-title">Talent Pipeline</h3>
-          <p class="benefit-description">Access to top talent for internships and recruitment</p>
-        </div>
-        <div class="benefit">
-          <h3 class="benefit-title">Brand Visibility</h3>
-          <p class="benefit-description">Prominent branding across digital and physical touchpoints</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact CTA -->
-  <section class="section">
-    <div class="container-editorial">
-      <div class="cta-block">
-        <h2 class="cta-title">Ready to partner with us?</h2>
-        <p class="cta-description">Get in touch with our sponsorship team to discuss custom packages.</p>
-        <div class="cta-actions">
-          <a href="mailto:sponsors@technova.edu" class="btn-primary">sponsors@technova.edu</a>
-          <a href="#" class="btn-outline">Download Brochure</a>
-        </div>
-      </div>
-    </div>
+    <h2 class="thank-you">Thank You to all our sponsors!</h2>
   </section>
 </BaseLayout>
 
@@ -315,152 +191,12 @@ const sponsorshipPackages = [
     color: var(--color-text-muted);
   }
 
-  /* Packages Grid */
-  .packages-grid {
-    display: grid;
-    gap: 1px;
-    background: var(--color-border);
-    border: 1px solid var(--color-border);
-  }
-
-  @media (min-width: 768px) {
-    .packages-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .package-card {
-    background: var(--color-bg-deep);
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .package-card.sold-out {
-    opacity: 0.5;
-  }
-
-  .package-header {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .package-tier {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-  }
-
-  .package-price {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-accent-editorial);
-  }
-
-  .package-features {
-    list-style: none;
-    flex-grow: 1;
-  }
-
-  .package-features li {
-    font-size: 0.8125rem;
-    color: var(--color-text-muted);
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .package-features li:last-child {
-    border-bottom: none;
-  }
-
-  .package-footer {
-    margin-top: 1.5rem;
-  }
-
-  .package-cta {
-    display: block;
-    padding: 0.75rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    text-align: center;
-    border: 1px solid var(--color-border);
-    color: var(--color-text-muted);
-    transition: color 0.2s ease, border-color 0.2s ease;
-  }
-
-  .package-cta:hover {
-    color: var(--color-text);
-    border-color: var(--color-border-hover);
-  }
-
-  .package-status {
-    display: block;
-    padding: 0.75rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    text-align: center;
-    color: var(--color-text-dim);
-  }
-
-  /* Benefits Grid */
-  .benefits-grid {
-    display: grid;
-    gap: 1px;
-    background: var(--color-border);
-    border: 1px solid var(--color-border);
-  }
-
-  @media (min-width: 768px) {
-    .benefits-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .benefit {
-    background: var(--color-bg-deep);
-    padding: 2rem 1.5rem;
-  }
-
-  .benefit-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .benefit-description {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
-  }
-
-  /* CTA Block */
-  .cta-block {
-    padding: 3rem 2rem;
-    border: 1px solid var(--color-border);
-    text-align: center;
-  }
-
-  .cta-title {
+  .thank-you {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-  }
-
-  .cta-description {
-    font-size: 0.9375rem;
-    color: var(--color-text-muted);
-    margin-bottom: 1.5rem;
-  }
-
-  .cta-actions {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.75rem;
   }
 </style>

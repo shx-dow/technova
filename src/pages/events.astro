@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/baseLayout.astro";
 
-// Placeholder event data - replace with real events
+// placeholder event data
 const categories = [
   { id: "all", label: "All" },
   { id: "hackathon", label: "Hackathons" },
@@ -14,178 +14,161 @@ const categories = [
 const events = [
   {
     id: 1,
-    title: "Code Crusade",
+    title: "Hackathon",
     category: "hackathon",
     date: "27 Feb",
-    time: "9:00 AM - 9:00 AM (+1)",
-    venue: "Main Auditorium",
-    prize: "₹2,00,000",
+    time: "TBD",
+    venue: "TBD",
+    prize: "TBD",
     teamSize: "2-4",
-    description: "The flagship 24-hour hackathon where teams build innovative solutions to real-world problems.",
+    description: "some relevant info",
     featured: true,
   },
   {
     id: 2,
-    title: "AI Arena",
+    title: "Competition 1",
     category: "competition",
     date: "27 Feb",
-    time: "10:00 AM - 4:00 PM",
-    venue: "Lab Complex",
-    prize: "₹50,000",
+    time: "TBD",
+    venue: "TBD",
+    prize: "TBD",
     teamSize: "1-2",
-    description: "Battle it out with your machine learning models on challenging datasets.",
+    description: "some relevant info",
     featured: true,
   },
   {
     id: 3,
-    title: "Cyber Quest",
+    title: "Competition 2",
     category: "competition",
     date: "28 Feb",
-    time: "10:00 AM - 6:00 PM",
-    venue: "Computer Lab A",
-    prize: "₹75,000",
+    time: "TBD",
+    venue: "TBD",
+    prize: "TBD",
     teamSize: "2-3",
-    description: "Capture the flag cybersecurity challenge in cryptography, forensics, and web exploitation.",
+    description: "some relevant info",
     featured: true,
   },
   {
     id: 4,
-    title: "Web3 Workshop",
+    title: "Workshop 1",
     category: "workshop",
     date: "27 Feb",
-    time: "2:00 PM - 5:00 PM",
-    venue: "Seminar Hall 1",
-    prize: "Certificate",
+    time: "TBD",
+    venue: "TBD",
+    prize: "TBD",
     teamSize: "Individual",
-    description: "Hands-on session on blockchain development, smart contracts, and dApps.",
+    description: "some relevant info",
     featured: false,
   },
   {
     id: 5,
-    title: "Cloud Native Bootcamp",
+    title: "Workshop 2",
     category: "workshop",
     date: "28 Feb",
-    time: "10:00 AM - 1:00 PM",
-    venue: "Seminar Hall 2",
-    prize: "Certificate",
+    time: "TBD",
+    venue: "TBD",
+    prize: "TBD",
     teamSize: "Individual",
-    description: "Learn Kubernetes, Docker, and cloud-native architecture from industry experts.",
+    description: "some relevant info",
     featured: false,
   },
   {
     id: 6,
-    title: "Future of AI Panel",
+    title: "Talk 1",
     category: "talk",
     date: "27 Feb",
-    time: "4:00 PM - 6:00 PM",
-    venue: "Main Auditorium",
+    time: "TBD",
+    venue: "TBD",
     prize: "-",
     teamSize: "Open",
-    description: "Industry leaders discuss the future of artificial intelligence and ethics.",
+    description: "some relevant info",
     featured: false,
   },
   {
     id: 7,
-    title: "Startup Showcase",
+    title: "Talk 2",
     category: "talk",
     date: "28 Feb",
-    time: "2:00 PM - 4:00 PM",
-    venue: "Main Auditorium",
+    time: "TBD",
+    venue: "TBD",
     prize: "-",
     teamSize: "Open",
-    description: "Pitch your startup idea to investors and get valuable feedback.",
+    description: "some relevant info",
     featured: false,
   },
   {
     id: 8,
-    title: "Bug Bounty Blitz",
+    title: "Competition 3",
     category: "competition",
     date: "27 Feb",
-    time: "11:00 AM - 3:00 PM",
-    venue: "Computer Lab B",
-    prize: "₹30,000",
+    time: "TBD",
+    venue: "TBD",
+    prize: "TBD",
     teamSize: "Individual",
-    description: "Find vulnerabilities in our test applications. More bugs, more wins!",
+    description: "some relevant info",
     featured: false,
   },
   {
     id: 9,
-    title: "Design Sprint",
+    title: "Competition 4",
     category: "competition",
     date: "28 Feb",
-    time: "10:00 AM - 4:00 PM",
-    venue: "Design Lab",
-    prize: "₹25,000",
+    time: "TBD",
+    venue: "TBD",
+    prize: "TBD",
     teamSize: "1-2",
-    description: "Create stunning UI/UX designs for given problem statements.",
+    description: "some relevant info",
     featured: false,
   },
   {
     id: 10,
-    title: "Tech Quiz",
+    title: "Quiz",
     category: "fun",
     date: "27 Feb",
-    time: "6:00 PM - 8:00 PM",
-    venue: "Seminar Hall 1",
-    prize: "₹15,000",
+    time: "TBD",
+    venue: "TBD",
+    prize: "TBD",
     teamSize: "2-3",
-    description: "Test your tech knowledge in this fast-paced quiz.",
+    description: "some relevant info",
     featured: false,
   },
   {
     id: 11,
-    title: "Gaming Tournament",
+    title: "Gaming",
     category: "fun",
     date: "28 Feb",
-    time: "4:00 PM - 8:00 PM",
-    venue: "Recreation Hall",
-    prize: "₹20,000",
-    teamSize: "5",
-    description: "Compete in popular esports titles including Valorant, CS2, and more.",
+    time: "TBD",
+    venue: "TBD",
+    prize: "TBD",
+    teamSize: "4",
+    description: "some relevant info",
     featured: false,
   },
   {
     id: 12,
-    title: "Robo Wars",
+    title: "Competition 5",
     category: "competition",
     date: "28 Feb",
-    time: "10:00 AM - 5:00 PM",
-    venue: "Sports Ground",
-    prize: "₹40,000",
+    time: "TBD",
+    venue: "TBD",
+    prize: "TBD",
     teamSize: "3-5",
-    description: "Build robots and battle it out in the arena. Last bot standing wins!",
+    description: "some relevant info",
     featured: false,
   },
 ];
 ---
 
 <BaseLayout title="Events | TechNova 2026">
-  <!-- Page Header -->
   <header class="page-header">
     <div class="container-editorial">
-      <p class="page-label">50+ Events</p>
+      <p class="page-label">X+ Events</p>
       <h1 class="page-title">Events & Competitions</h1>
       <p class="page-description">
-        From intense hackathons to insightful workshops, explore the full lineup of events at TechNova 2026.
+        From intense hackathons to game battles, explore the full lineup of events at TechNova 2026.
       </p>
     </div>
   </header>
-
-  <!-- Category Filter -->
-  <section class="filter-bar">
-    <div class="container-editorial">
-      <div class="filter-scroll" id="category-filter">
-        {categories.map((cat, i) => (
-          <button
-            class={`filter-btn ${i === 0 ? 'active' : ''}`}
-            data-category={cat.id}
-          >
-            {cat.label}
-          </button>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <!-- Featured Events -->
   <section class="section">
