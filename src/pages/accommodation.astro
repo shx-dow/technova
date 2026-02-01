@@ -1,0 +1,607 @@
+---
+import BaseLayout from "../layouts/baseLayout.astro";
+
+// Placeholder accommodation data
+const accommodationOptions = [
+  {
+    type: "On-Campus Hostel",
+    price: "₹500",
+    priceUnit: "per night",
+    description: "Stay in our campus hostels with basic amenities. Perfect for students on a budget.",
+    features: [
+      "Shared rooms (4-6 beds)",
+      "Common bathrooms",
+      "24/7 security",
+      "Wi-Fi access",
+      "Mess facility",
+      "Walking distance to venues",
+    ],
+    availability: "Limited",
+    recommended: false,
+  },
+  {
+    type: "Partner Hotel - Budget",
+    price: "₹1,500",
+    priceUnit: "per night",
+    description: "Comfortable budget hotels near campus with private rooms.",
+    features: [
+      "Private/Twin sharing",
+      "Attached bathroom",
+      "AC rooms",
+      "Complimentary breakfast",
+      "Free shuttle to campus",
+      "24/7 room service",
+    ],
+    availability: "Available",
+    recommended: true,
+  },
+  {
+    type: "Partner Hotel - Premium",
+    price: "₹3,500",
+    priceUnit: "per night",
+    description: "Premium accommodation for comfort and luxury during the fest.",
+    features: [
+      "Deluxe private rooms",
+      "Premium amenities",
+      "Restaurant & lounge",
+      "Gym & pool access",
+      "Priority shuttle",
+      "Concierge support",
+    ],
+    availability: "Available",
+    recommended: false,
+  },
+];
+
+const transportInfo = [
+  { mode: "Airport Pickup", description: "Shuttle from airport to campus/hotel", price: "₹500", note: "Pre-booking required" },
+  { mode: "Railway Station", description: "Regular shuttles from the station", price: "Free", note: "Every 2 hours" },
+  { mode: "Local Transport", description: "Free shuttle between hotels and campus", price: "Free", note: "Every 30 mins" },
+];
+
+const faqs = [
+  { question: "When can I check in?", answer: "Check-in starts from 2:00 PM on February 26th. Early check-in can be requested subject to availability." },
+  { question: "Is food included?", answer: "On-campus hostel includes mess facility. Partner hotels offer complimentary breakfast. Lunch and dinner available at venue." },
+  { question: "Can I book for my entire team?", answer: "Yes! Group bookings available with discounts for teams of 5 or more. Contact us for bulk rates." },
+  { question: "What's the cancellation policy?", answer: "Full refund if cancelled 7 days before. 50% refund for 3-7 days. No refund within 3 days." },
+  { question: "Is the accommodation safe?", answer: "All accommodations have 24/7 security, CCTV surveillance, and emergency support. Female-only floors available." },
+];
+---
+
+<BaseLayout title="Accommodation | TechNova 2026">
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container-editorial">
+      <p class="page-label">Your Home Away From Home</p>
+      <h1 class="page-title">Stay With Us</h1>
+      <p class="page-description">
+        Comfortable accommodation options for participants traveling from outside the city.
+      </p>
+    </div>
+  </header>
+
+  <!-- Key Info -->
+  <section class="section">
+    <div class="container-editorial">
+      <div class="info-banner">
+        <div class="info-item">
+          <span class="info-value">Feb 26-28</span>
+          <span class="info-label">Stay Duration</span>
+        </div>
+        <div class="info-divider"></div>
+        <div class="info-item">
+          <span class="info-value">2 Nights</span>
+          <span class="info-label">Recommended</span>
+        </div>
+        <div class="info-divider"></div>
+        <div class="info-item">
+          <span class="info-value">500+</span>
+          <span class="info-label">Beds Available</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accommodation Options -->
+  <section class="section">
+    <div class="container-editorial">
+      <h2 class="section-label">Accommodation Options</h2>
+      
+      <div class="options-grid">
+        {accommodationOptions.map((option) => (
+          <div class={`option-card ${option.recommended ? 'recommended' : ''}`}>
+            {option.recommended && (
+              <span class="recommended-badge">Recommended</span>
+            )}
+            
+            <div class="option-header">
+              <h3 class="option-type">{option.type}</h3>
+              <div class="option-price">
+                <span class="price-value">{option.price}</span>
+                <span class="price-unit">{option.priceUnit}</span>
+              </div>
+            </div>
+            
+            <p class="option-description">{option.description}</p>
+            
+            <ul class="option-features">
+              {option.features.map(feature => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+            
+            <div class="option-footer">
+              <span class={`availability ${option.availability === 'Limited' ? 'limited' : ''}`}>
+                {option.availability}
+              </span>
+              <a href="#" class={option.recommended ? 'btn-primary' : 'btn-outline'}>
+                Book Now
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <p class="price-note">* Prices are per person per night. Taxes may apply. Group discounts available.</p>
+    </div>
+  </section>
+
+  <!-- Transport -->
+  <section class="section">
+    <div class="container-editorial">
+      <h2 class="section-label">Getting Here</h2>
+      
+      <div class="transport-grid">
+        {transportInfo.map((transport) => (
+          <div class="transport-item">
+            <h3 class="transport-mode">{transport.mode}</h3>
+            <p class="transport-description">{transport.description}</p>
+            <p class="transport-price">{transport.price}</p>
+            <p class="transport-note">{transport.note}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue Location -->
+  <section class="section">
+    <div class="container-editorial">
+      <div class="location-grid">
+        <div class="location-info">
+          <h2 class="section-label">Venue Location</h2>
+          
+          <div class="address-block">
+            <h3 class="address-title">ICFAI University Campus</h3>
+            <p class="address-text">
+              University Road, Placeholder City,<br />
+              State - 500000, India
+            </p>
+          </div>
+          
+          <div class="distances">
+            <p><strong>Airport:</strong> ~30 km (45 mins)</p>
+            <p><strong>Railway Station:</strong> ~15 km (25 mins)</p>
+            <p><strong>Bus Stand:</strong> ~10 km (20 mins)</p>
+          </div>
+          
+          <a href="#" class="directions-link">Get Directions on Google Maps →</a>
+        </div>
+        
+        <div class="map-placeholder">
+          <span>Map</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container-editorial">
+      <h2 class="section-label">Frequently Asked</h2>
+      
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary class="faq-question">{faq.question}</summary>
+            <p class="faq-answer">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="section">
+    <div class="container-editorial">
+      <div class="cta-block">
+        <h2 class="cta-title">Need help with booking?</h2>
+        <p class="cta-description">Our team is here to assist with any queries or special requirements.</p>
+        <div class="cta-actions">
+          <a href="mailto:stay@technova.edu" class="btn-primary">stay@technova.edu</a>
+          <a href="tel:+911234567890" class="btn-outline">+91 12345 67890</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    padding: 8rem 1.5rem 3rem;
+  }
+
+  .page-label {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent-editorial);
+    margin-bottom: 1rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .page-description {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+    max-width: 540px;
+    line-height: 1.6;
+  }
+
+  /* Section */
+  .section {
+    padding: 3rem 1.5rem;
+  }
+
+  .section-label {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Info Banner */
+  .info-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .info-value {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-accent-editorial);
+  }
+
+  .info-label {
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+  }
+
+  .info-divider {
+    width: 1px;
+    height: 2rem;
+    background: var(--color-border);
+  }
+
+  @media (max-width: 640px) {
+    .info-divider {
+      display: none;
+    }
+  }
+
+  /* Options Grid */
+  .options-grid {
+    display: grid;
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+  }
+
+  @media (min-width: 768px) {
+    .options-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .option-card {
+    position: relative;
+    background: var(--color-bg-deep);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .option-card.recommended {
+    background: var(--color-bg-card);
+  }
+
+  .recommended-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.5625rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--color-accent-editorial);
+    color: var(--color-bg-deep);
+  }
+
+  .option-header {
+    margin-bottom: 1rem;
+  }
+
+  .option-type {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .option-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+  }
+
+  .price-value {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-accent-editorial);
+  }
+
+  .price-unit {
+    font-size: 0.75rem;
+    color: var(--color-text-dim);
+  }
+
+  .option-description {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .option-features {
+    list-style: none;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .option-features li {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    padding: 0.375rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .option-features li:last-child {
+    border-bottom: none;
+  }
+
+  .option-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .availability {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #4ade80;
+  }
+
+  .availability.limited {
+    color: var(--color-accent-editorial);
+  }
+
+  .price-note {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--color-text-dim);
+    text-align: center;
+  }
+
+  /* Transport Grid */
+  .transport-grid {
+    display: grid;
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+  }
+
+  @media (min-width: 768px) {
+    .transport-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .transport-item {
+    background: var(--color-bg-deep);
+    padding: 1.5rem;
+  }
+
+  .transport-mode {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .transport-description {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .transport-price {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-accent-editorial);
+    margin-bottom: 0.25rem;
+  }
+
+  .transport-note {
+    font-size: 0.6875rem;
+    color: var(--color-text-dim);
+  }
+
+  /* Location */
+  .location-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .location-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+
+  .address-block {
+    margin-bottom: 1.5rem;
+  }
+
+  .address-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .address-text {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .distances {
+    margin-bottom: 1.5rem;
+  }
+
+  .distances p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.375rem;
+  }
+
+  .distances strong {
+    color: var(--color-text);
+  }
+
+  .directions-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-accent-editorial);
+    transition: opacity 0.2s ease;
+  }
+
+  .directions-link:hover {
+    opacity: 0.8;
+  }
+
+  .map-placeholder {
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+  }
+
+  /* FAQ */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-question {
+    padding: 1.25rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.25rem;
+    color: var(--color-text-dim);
+    transition: transform 0.2s ease;
+  }
+
+  .faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding-bottom: 1.25rem;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* CTA Block */
+  .cta-block {
+    padding: 3rem 2rem;
+    border: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-description {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+</style>

@@ -1,17 +1,279 @@
 ---
+import BaseLayout from "../layouts/baseLayout.astro";
 
+// Placeholder for Google Form registration URL
+const REGISTER_URL = "#";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <section class="hero-frame">
+    <div class="hero-content">
+      <!-- Top: Date & Location -->
+      <div class="hero-meta">
+        <span>27 - 28 February 2026</span>
+        <span class="meta-divider"></span>
+        <span>ICFAI University</span>
+      </div>
+
+      <div class="hero-title-block">
+        <h1 class="hero-title">
+          <span class="hero-title-tech">Tech</span><span class="hero-title-nova">Nova</span>
+        </h1>
+        <p class="hero-tagline">
+          Where innovation meets imagination
+        </p>
+      </div>
+
+      <div class="hero-ctas">
+        <a href={REGISTER_URL} class="cta-primary">Register</a>
+        <a href="/events" class="cta-secondary">Explore Events</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-value">X+</span>
+          <span class="stat-label">Events</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">X</span>
+          <span class="stat-label">Hours</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">X+</span>
+          <span class="stat-label">Prizes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Frame - Full Viewport, Single Screen */
+  .hero-frame {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 1.5rem 2rem;
+    position: relative;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    max-width: 600px;
+    text-align: center;
+    flex: 1;
+  }
+
+  /* Meta Info */
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: 0.2s;
+  }
+
+  .meta-divider {
+    width: 24px;
+    height: 1px;
+    background: var(--color-text-dim);
+  }
+
+  /* Title Block */
+  .hero-title-block {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: 0.4s;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 15vw, 9rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title-tech {
+    color: var(--color-accent-editorial);
+  }
+
+  .hero-title-nova {
+    color: var(--color-text);
+  }
+
+  .hero-tagline {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--color-text-muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* CTAs */
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: 0.6s;
+  }
+
+  .cta-primary {
+    padding: 0.875rem 2rem;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: var(--color-text);
+    color: var(--color-bg-deep);
+    border: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .cta-primary:hover {
+    opacity: 0.85;
+  }
+
+  .cta-secondary {
+    padding: 0.875rem 2rem;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .cta-secondary:hover {
+    color: var(--color-text);
+    border-color: var(--color-text-muted);
+  }
+
+  /* Stats */
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: 0.8s;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .stat-label {
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+  }
+
+  /* Navigation Hints at Bottom */
+  .hero-nav-hints {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: 1s;
+  }
+
+  .hero-nav-hints a {
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    transition: color 0.2s ease;
+  }
+
+  .hero-nav-hints a:hover {
+    color: var(--color-text-muted);
+  }
+
+  /* Subtle fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .hero-frame {
+      padding: 5rem 1.25rem 1.5rem;
+    }
+
+    .hero-content {
+      gap: 2rem;
+    }
+
+    .hero-meta {
+      font-size: 0.625rem;
+      gap: 0.75rem;
+    }
+
+    .meta-divider {
+      width: 16px;
+    }
+
+    .hero-ctas {
+      flex-direction: column;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-stats {
+      gap: 2rem;
+    }
+
+    .stat-value {
+      font-size: 1.25rem;
+    }
+
+    .hero-nav-hints {
+      display: none;
+    }
+  }
+</style>
