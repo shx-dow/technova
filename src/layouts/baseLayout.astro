@@ -44,6 +44,12 @@ const isHomepage = Astro.url.pathname === '/';
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
   </head>
+  <body>
+    <!-- Cosmic Background -->
+    <div class="cosmic-background"></div>
+    <div class="cosmic-stars"></div>
+    <div class="cosmic-nebula"></div>
+    
     <Navbar />
     <main class="main">
       <slot />
