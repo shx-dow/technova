@@ -172,46 +172,37 @@ a {
   padding: 3rem 1.5rem;
 }
 
-/* ===== SUPERNOVA COSMIC BACKGROUND ===== */
+/* ===== HAZY COSMIC BACKGROUND ===== */
+/* Combined into single layer for performance */
 .cosmic-background {
   position: fixed;
   inset: 0;
   background: 
-    radial-gradient(ellipse 100% 60% at 50% 35%, rgba(255, 255, 255, 0.03) 0%, transparent 55%),
-    radial-gradient(ellipse 140% 100% at 50% 25%, rgba(200, 200, 210, 0.015) 0%, transparent 65%),
-    linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.008) 25%, transparent 50%, rgba(255, 255, 255, 0.008) 75%, transparent 100%),
+    /* Hazy nebula glow - creates atmospheric gloom */
+    radial-gradient(ellipse 80% 50% at 60% 40%, rgba(180, 185, 200, 0.04) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 30% 70%, rgba(160, 165, 180, 0.03) 0%, transparent 50%),
+    /* Single prominent star - upper area */
+    radial-gradient(5px 1.5px at 25% 25%, rgba(255, 255, 255, 0.95), transparent),
+    radial-gradient(1.5px 5px at 25% 25%, rgba(255, 255, 255, 0.95), transparent),
+    /* Second subtle star - lower right */
+    radial-gradient(4px 1px at 75% 65%, rgba(255, 255, 255, 0.75), transparent),
+    radial-gradient(1px 4px at 75% 65%, rgba(255, 255, 255, 0.75), transparent),
+    /* Deep space base */
     var(--color-bg-deep);
   pointer-events: none;
   z-index: -1;
+  /* GPU acceleration for smooth zoom */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
+/* Empty stars layer - kept for structure but no content */
 .cosmic-stars {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  background-image: 
-    radial-gradient(1.5px 1.5px at 20px 30px, rgba(255, 255, 255, 0.15), transparent),
-    radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.12), transparent),
-    radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.1), transparent),
-    radial-gradient(1.5px 1.5px at 160px 120px, rgba(255, 255, 255, 0.08), transparent),
-    radial-gradient(1px 1px at 230px 80px, rgba(255, 255, 255, 0.12), transparent),
-    radial-gradient(1px 1px at 300px 150px, rgba(255, 255, 255, 0.08), transparent),
-    radial-gradient(1px 1px at 380px 60px, rgba(255, 255, 255, 0.1), transparent),
-    radial-gradient(1.5px 1.5px at 450px 200px, rgba(255, 255, 255, 0.08), transparent),
-    radial-gradient(1px 1px at 520px 90px, rgba(255, 255, 255, 0.1), transparent),
-    radial-gradient(1px 1px at 600px 180px, rgba(255, 255, 255, 0.06), transparent),
-    radial-gradient(1px 1px at 680px 45px, rgba(255, 255, 255, 0.1), transparent),
-    radial-gradient(1.5px 1.5px at 750px 130px, rgba(255, 255, 255, 0.08), transparent),
-    radial-gradient(1px 1px at 820px 220px, rgba(255, 255, 255, 0.06), transparent),
-    radial-gradient(1px 1px at 900px 85px, rgba(255, 255, 255, 0.1), transparent),
-    radial-gradient(1px 1px at 980px 170px, rgba(255, 255, 255, 0.08), transparent),
-    radial-gradient(1.5px 1.5px at 1050px 55px, rgba(255, 255, 255, 0.12), transparent),
-    radial-gradient(1px 1px at 1120px 140px, rgba(255, 255, 255, 0.06), transparent),
-    radial-gradient(1px 1px at 1200px 200px, rgba(255, 255, 255, 0.08), transparent);
-  background-repeat: repeat;
-  background-size: 1200px 300px;
-  opacity: 0.3;
+  transform: translateZ(0);
 }
 
 .cosmic-nebula {
@@ -219,10 +210,7 @@ a {
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  background: 
-    radial-gradient(ellipse 50% 25% at 25% 65%, rgba(240, 240, 245, 0.015) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 20% at 75% 75%, rgba(220, 220, 230, 0.012) 0%, transparent 60%);
-  filter: blur(60px);
+  transform: translateZ(0);
 }
 
 /* ===== TAILWIND THEME CONFIG (MINIMAL) ===== */
