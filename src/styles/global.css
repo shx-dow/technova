@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* ===== CSS VARIABLES - EDITORIAL SPACE AESTHETIC ===== */
+/* ===== CSS VARIABLES - TECHNOVA SPACE THEME ===== */
 :root {
   /* Deep space backgrounds */
   --color-bg-deep: #08080c;
@@ -9,7 +9,7 @@
   --color-bg-card: #101018;
   --color-surface: #16161f;
 
-  /* Single accent color - used sparingly */
+  /* Accent - used sparingly */
   --color-accent-editorial: #a8b4ff;
   --color-accent-dim: #6b7ab8;
 
@@ -18,7 +18,7 @@
   --color-text-muted: #8a8a9a;
   --color-text-dim: #4a4a5a;
 
-  /* Borders - very subtle */
+  /* Borders - subtle */
   --color-border: rgba(255, 255, 255, 0.06);
   --color-border-hover: rgba(255, 255, 255, 0.12);
 
@@ -26,48 +26,14 @@
   --font-display: 'Clash Display', system-ui, sans-serif;
   --font-body: 'Satoshi', system-ui, sans-serif;
 
-  /* Editorial content width */
-  --content-width: 680px;
-  --content-width-wide: 960px;
-
-  /* Spacing */
-  --space-section: clamp(4rem, 8vw, 6rem);
-
-  /* Transitions - subtle and smooth */
+  /* Transitions */
   --transition-fast: 150ms ease;
   --transition-smooth: 250ms ease;
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Tailwind theme variables - minimal */
+  --background: #08080c;
+  --foreground: #f0f0f5;
+  --radius: 0.5rem;
 }
 
 /* ===== BASE STYLES ===== */
@@ -94,7 +60,7 @@ body {
   font-size: 16px;
 }
 
-/* Subtle scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -118,7 +84,7 @@ body {
   color: var(--color-bg-deep);
 }
 
-/* ===== TYPOGRAPHY - EDITORIAL SCALE ===== */
+/* ===== TYPOGRAPHY ===== */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 600;
@@ -142,24 +108,20 @@ a {
   text-decoration: none;
 }
 
-/* ===== UTILITY CLASSES ===== */
-
-/* Accent text - used sparingly */
-.text-accent {
-  color: var(--color-accent-editorial);
+/* ===== CONTAINERS ===== */
+.container-editorial {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-/* Subtle surface styles */
-.surface {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+@media (min-width: 768px) {
+  .container-editorial {
+    padding: 0 2rem;
+  }
 }
 
-.surface-hover:hover {
-  border-color: var(--color-border-hover);
-}
-
-/* ===== BUTTON STYLES - MINIMAL ===== */
+/* ===== BUTTONS ===== */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -205,219 +167,9 @@ a {
   border-color: var(--color-border-hover);
 }
 
-/* ===== CARD STYLES - MINIMAL ===== */
-.card {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  overflow: hidden;
-  transition: border-color var(--transition-smooth);
-}
-
-.card:hover {
-  border-color: var(--color-border-hover);
-}
-
-/* ===== SECTION STYLES ===== */
+/* ===== SECTION ===== */
 .section {
-  padding: var(--space-section) 0;
-  position: relative;
-}
-
-.section-title {
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
-  margin-bottom: 0.75rem;
-}
-
-.section-subtitle {
-  font-size: 1rem;
-  color: var(--color-text-muted);
-  max-width: var(--content-width);
-}
-
-/* ===== EDITORIAL CONTENT CONTAINER ===== */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.container-narrow {
-  max-width: var(--content-width);
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.container-editorial {
-  max-width: var(--content-width-wide);
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .container,
-  .container-narrow,
-  .container-editorial {
-    padding: 0 2rem;
-  }
-}
-
-/* ===== SUBTLE NOISE OVERLAY ===== */
-.noise-overlay::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.015;
-  pointer-events: none;
-  z-index: 9998;
-}
-
-/* ===== GLASS EFFECT - VERY SUBTLE ===== */
-.glass {
-  background: rgba(16, 16, 24, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--color-border);
-}
-
-/* ===== PLACEHOLDER STYLES ===== */
-.placeholder-image {
-  background: var(--color-surface);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-dim);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-/* ===== LINK STYLES ===== */
-.link-subtle {
-  color: var(--color-text-muted);
-  transition: color var(--transition-fast);
-}
-
-.link-subtle:hover {
-  color: var(--color-text);
-}
-
-.link-accent {
-  color: var(--color-accent-editorial);
-  transition: opacity var(--transition-fast);
-}
-
-.link-accent:hover {
-  opacity: 0.8;
-}
-
-/* ===== DIVIDER ===== */
-.divider {
-  height: 1px;
-  background: var(--color-border);
-}
-
-/* ===== BADGE ===== */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.375rem 0.75rem;
-  font-size: 0.625rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-muted);
-}
-
-.badge-accent {
-  background: rgba(168, 180, 255, 0.1);
-  border-color: rgba(168, 180, 255, 0.2);
-  color: var(--color-accent-editorial);
-}
-
-/* ===== PROSE STYLES FOR CONTENT PAGES ===== */
-.prose {
-  max-width: var(--content-width);
-}
-
-.prose p {
-  margin-bottom: 1.5rem;
-}
-
-.prose h2 {
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-}
-
-.prose h3 {
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-}
-
-.prose ul, .prose ol {
-  margin-bottom: 1.5rem;
-  padding-left: 1.5rem;
-  color: var(--color-text-muted);
-}
-
-.prose li {
-  margin-bottom: 0.5rem;
-}
-
-.prose a {
-  color: var(--color-accent-editorial);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.prose a:hover {
-  opacity: 0.8;
-}
-
-/* ===== METEORS ANIMATION ===== */
-.meteors-wrapper {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.meteor-element {
-  background: rgba(168, 180, 255, 0.6);
-  box-shadow: 0 0 0 1px rgba(168, 180, 255, 0.1);
-  rotate: var(--angle);
-  animation: meteor-fall linear infinite;
-}
-
-.meteor-tail {
-  background: linear-gradient(to right, rgba(168, 180, 255, 0.4), transparent);
-}
-
-@keyframes meteor-fall {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-500px);
-    opacity: 0;
-  }
-}
-
-/* Reduce motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .meteor-element {
-    animation: none;
-    opacity: 0;
-  }
+  padding: 3rem 1.5rem;
 }
 
 /* ===== SUPERNOVA COSMIC BACKGROUND ===== */
@@ -425,19 +177,14 @@ a {
   position: fixed;
   inset: 0;
   background: 
-    /* Central supernova glow - very subtle */
     radial-gradient(ellipse 100% 60% at 50% 35%, rgba(255, 255, 255, 0.03) 0%, transparent 55%),
-    /* Outer cosmic halo - barely visible */
     radial-gradient(ellipse 140% 100% at 50% 25%, rgba(200, 200, 210, 0.015) 0%, transparent 65%),
-    /* Subtle diagonal light rays */
     linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.008) 25%, transparent 50%, rgba(255, 255, 255, 0.008) 75%, transparent 100%),
-    /* Deep space base */
     var(--color-bg-deep);
   pointer-events: none;
   z-index: -1;
 }
 
-/* Light particle stars - very subtle */
 .cosmic-stars {
   position: fixed;
   inset: 0;
@@ -467,7 +214,6 @@ a {
   opacity: 0.3;
 }
 
-/* Subtle nebula wisps - barely visible */
 .cosmic-nebula {
   position: fixed;
   inset: 0;
@@ -479,100 +225,12 @@ a {
   filter: blur(60px);
 }
 
+/* ===== TAILWIND THEME CONFIG (MINIMAL) ===== */
 @theme inline {
-  --animate-meteor: meteor 5s linear infinite;
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --color-foreground: var(--foreground);
   --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--color-border);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-  @keyframes meteor {
-  0% {
-    transform: rotate(var(--angle)) translateX(0);
-    opacity: 1;
-    }
-  70% {
-    opacity: 1;
-    }
-  100% {
-    transform: rotate(var(--angle)) translateX(-500px);
-    opacity: 0;
-    }
-  }
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
 }
